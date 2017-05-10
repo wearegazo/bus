@@ -8,7 +8,7 @@ npm install gazo-bus --save
 
 ## Use
 ```javascript
-const Bus = require('gazo-bus')(process.env.GCLOUD_PROJECT)
+const Bus = require('gazo-bus')(options)
 ```
 
 ### Publish message
