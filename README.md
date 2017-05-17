@@ -8,15 +8,16 @@ npm install gazo-bus --save
 
 ## Use
 ```javascript
-const Bus = require('gazo-bus')(options)
-```
-
-### Publish message
-```javascript
-Bus.publish('user-registered', {username: 'johndoe'})
+const gazoBus = require('gazo-bus')
 ```
 
 ### Parse received message
 ```javascript
-Bus.parseMessage(event.data)
+gazoBus.parseMessage(event.data)
+```
+
+### Publish message
+```javascript
+const bus = gazoBus.connect(options)
+bus.publish('user-registered', {username: 'johndoe'})
 ```
