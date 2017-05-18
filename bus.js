@@ -28,7 +28,7 @@ module.exports.connect = (options = {}) => {
    * @param {Object} options
    * @return {Promise}
    */
-  const subscribe = (topic, subscriber, options) => {
+  const subscribe = (topic, subscriber, options = {}) => {
     return bus.topic(topic).subscribe(options)
       .then(([subscription]) => {
         subscription.on('message', subscriber)
