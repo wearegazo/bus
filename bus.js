@@ -35,9 +35,18 @@ module.exports.connect = (options = {}) => {
       })
   }
 
+  /**
+   * Create a a new topic.
+   *
+   * @param {string} topicName
+   * @return {Promise}
+   */
+  const createTopic = bus.createTopic
+
   return {
     publish,
     subscribe,
+    createTopic,
   }
 }
 
