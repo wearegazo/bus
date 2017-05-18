@@ -20,8 +20,24 @@ module.exports.connect = (options) => {
     return bus.topic(topic).publish(payload)
   }
 
+  /**
+   * Subscribe to a given topic.
+   *
+   * @param {string} topic
+   * @param {Function} subscriber
+   * @param {Object} options
+   * @return {Promise}
+   */
+  const subscribe = (topic, subscriber, options) => {
+    return bus.topic(topic).subscribe(options)
+      .then(([subscription]) => {
+        subscription.on('message', subscriber)
+      })
+  }
+
   return {
     publish,
+    subscribe,
   }
 }
 
