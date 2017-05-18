@@ -6,7 +6,7 @@ const pubsub = require('@google-cloud/pubsub')
  * @param {Object} options
  * @return {Object}
  */
-module.exports.connect = (options) => {
+module.exports.connect = (options = {}) => {
   const bus = pubsub(options)
 
   /**
