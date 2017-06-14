@@ -51,15 +51,13 @@ module.exports.connect = (options = {}) => {
 }
 
 /**
- * Parse incoming message.
+ * Parse incoming message payload.
  *
- * @param {string} messageId
- * @param {string} publishTime
- * @param {string} data
+ * @param {Object} e
  * @return {Object}
  */
-module.exports.parseMessage = ({messageId, publishTime, data}) => ({
-  id: messageId,
-  timestamp: publishTime,
-  payload: JSON.parse(Buffer.from(data, 'base64').toString())
-})
+module.exports.parsePayload = (e) => {
+  if (typeof e.data === 'object') return e.data
+
+  return JSON.parse(Buffer.from(e.data.data, 'base64').toString())
+}
