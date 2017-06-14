@@ -41,7 +41,7 @@ module.exports.connect = (options = {}) => {
    * @param {string} topicName
    * @return {Promise}
    */
-  const createTopic = bus.createTopic
+  const createTopic = bus.createTopic.bind(bus)
 
   return {
     publish,
