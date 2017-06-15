@@ -57,7 +57,7 @@ module.exports.connect = (options = {}) => {
  * @return {Object}
  */
 module.exports.parsePayload = (e) => {
-  if (typeof e.data === 'object') return e.data
+  // if (typeof e.data === 'object') return e.data
 
   return JSON.parse(Buffer.from(e.data.data, 'base64').toString())
 }
